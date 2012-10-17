@@ -115,8 +115,8 @@ map <Leader>nn :NERDTreeToggle<CR>
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
-map ,v :e ~/.vim/vimrc<CR><C-W>_
-map <silent> ,V :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'" <CR>
+map ,v :e ~/.vimrc<CR><C-W>_
+map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'" <CR>
 
 " maps for lust exporer
 map ,f <Leader>lf
