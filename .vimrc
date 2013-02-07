@@ -42,6 +42,7 @@ vmap < <gv
 set showcmd                                                      " Display incomplete commands.
 set showmode                                                     " Display the mode you're in.
 set showmatch                                                    " Highlight matching brackets, etc.
+set autoread                    "Reload files changed outside vim
 
 set laststatus=2                " always have a status line
 set cmdheight=1                 " number of lines for the command line
@@ -85,18 +86,27 @@ set expandtab
 
 " folding settings
 set foldmethod=manual                                            " fast autocomplete
-" set foldmethod=syntax                                            
+" set foldmethod=syntax
 set foldnestmax=10                                               " deepest fold is 10 levels
 set nofoldenable                                                 " dont fold by default
 set foldlevel=1
 
 set title                                                        " Set the terminal's title
 
+set noswapfile
 set nobackup                                                     " Don't make a backup before overwriting a file.
 set nowritebackup                                                " And again.
 set directory=$HOME/.vim/tmp//,.                                 " Keep swap files in one location
 
 set shell=/bin/bash                                              " Some commands seem to have problems with zsh                    "
+
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+
+silent !mkdir ~/.vim/backups > /dev/null 2>&1
+set undodir=~/.vim/backups
+set undofile
 
 " auto complete select with enter
 " inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
