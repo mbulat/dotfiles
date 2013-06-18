@@ -149,7 +149,6 @@ autocmd FileType *
   \   call SuperTabChain(&omnifunc, "<c-p>") |
   \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
   \ endif
-endif
 
 " set t_Co=256
 " nnoremap ,3 :NumbersToggle<CR>
