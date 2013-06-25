@@ -6,7 +6,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 set encoding=utf-8
 
-set rtp+=$HOME/powerline/bindings/vim
+set rtp+=$HOME/powerline/powerline/bindings/vim
 
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
