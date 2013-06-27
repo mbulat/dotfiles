@@ -158,3 +158,6 @@ let g:Powerline_symbols = 'fancy'
 
 set ttymouse=xterm2
 set mouse=a
+
+let g:gitgutter_eager = 0
+highlight clear SignColumn
