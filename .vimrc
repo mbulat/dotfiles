@@ -161,3 +161,6 @@ set mouse=a
 
 let g:gitgutter_eager = 0
 highlight clear SignColumn
+
+" map for Tagbar
+nmap <F8> :TagbarToggle<CR>
