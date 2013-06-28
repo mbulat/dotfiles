@@ -41,6 +41,17 @@ vmap < <gv
 "map <ScrollWheelDown> <C-E>
 "map <ScrollWheelDown> <C-D>
 
+
+"##############################################################################
+" Easier split navigation
+"##############################################################################
+"
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
 set showcmd                                                      " Display incomplete commands.
 set showmode                                                     " Display the mode you're in.
 set showmatch                                                    " Highlight matching brackets, etc.
@@ -49,7 +60,7 @@ set autoread                    "Reload files changed outside vim
 set laststatus=2                " always have a status line
 set cmdheight=1                 " number of lines for the command line
 " set cursorline
-set lazyredraw 
+set lazyredraw
 set ttyfast
 set ttyscroll=3
 
@@ -57,7 +68,7 @@ set backspace=indent,eol,start                                   " Intuitive bac
 
 set wildmenu                                                     " Enhanced command line completion.
 set wildmode=list:longest                                        " Complete files like a shell.
-set wildignore+=*.o,*.obj,.bundle,coverage,.DS_Store,_html,.git,*.rbc,*.class,.svn,vendor/gems/*,vendor/rails/*   
+set wildignore+=*.o,*.obj,.bundle,coverage,.DS_Store,_html,.git,*.rbc,*.class,.svn,vendor/gems/*,vendor/rails/*
 
 set ignorecase                                                   " Case-insensitive searching.
 set smartcase                                                    " But case-sensitive if expression contains a capital letter.
