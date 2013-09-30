@@ -12,7 +12,7 @@
 	url = git://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/vim-taglist"]
 	path = .vim/bundle/vim-taglist
-	url = git://github.com/esukram/taglist.vim.git
+	url = git://github.com/esukram/vim-taglist.git
 [submodule ".vim/bundle/vim-ruby"]
 	path = .vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
