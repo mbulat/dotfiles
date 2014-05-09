@@ -29,7 +29,17 @@ set guifont=Consolas\ for\ Powerline:h20
 set pastetoggle=<F2>
 
 syntax enable
+
+filetype off
 filetype plugin indent on                                        " Turn in filetype detection
+
+" Show trailing whitepace and spaces before a tab:
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " Remap the indent keys in visual mode to keep selected text
 vmap > >gv
@@ -151,6 +161,11 @@ map ,b <Leader>lb
 map ,g <Leader>lg
 map ,s :Sscratch<CR>
 
+" maps for buffer explorer (so we don't compete with command-t)
+map ,bv :BufExplorerVerticalSplit<CR>
+map ,bs :BufExplorerHorizontalSplit<CR>
+map ,be :BufExplorer<CR>
+
 let g:rubycomplete_rails = 1
 let g:LustyExplorerSuppressRubyWarning = 1
 
@@ -175,3 +190,6 @@ highlight clear SignColumn
 
 " map for Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" remove trailing whitespaces
+autocmd FileType ruby,eruby,cucumber,javascript,coffee,css,less,scss autocmd BufWritePre <buffer> :%s/\s\+$//e
