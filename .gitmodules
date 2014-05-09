@@ -76,3 +76,6 @@
 [submodule ".vim/bundle/vim-tagbar"]
 	path = .vim/bundle/vim-tagbar
 	url = git://github.com/majutsushi/tagbar.git
+[submodule ".vim/bundle/vim-bufexplorer"]
+	path = .vim/bundle/vim-bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
