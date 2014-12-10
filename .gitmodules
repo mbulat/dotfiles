@@ -78,10 +78,10 @@
 	url = git://github.com/majutsushi/tagbar.git
 [submodule ".vim/bundle/vim-elixir"]
 	path = .vim/bundle/vim-elixir
-	url = git@github.com:elixir-lang/vim-elixir.git
+	url = git://github.com/elixir-lang/vim-elixir.git
 [submodule ".vim/bundle/vim-bufexplorer"]
 	path = .vim/bundle/vim-bufexplorer
-	url = git@github.com:jlanzarotta/bufexplorer.git
+	url = git://github.com/jlanzarotta/bufexplorer.git
 [submodule ".vim/bundle/vim-scala"]
 	path = .vim/bundle/vim-scala
-	url = git@github.com:derekwyatt/vim-scala.git
+	url = git://github.com/derekwyatt/vim-scala.git
