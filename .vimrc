@@ -34,6 +34,14 @@ set synmaxcol=256
 filetype off
 filetype plugin indent on                                        " Turn in filetype detection
 
+" Show trailing whitepace and spaces before a tab:
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 " Remap the indent keys in visual mode to keep selected text
 vmap > >gv
 vmap < <gv
