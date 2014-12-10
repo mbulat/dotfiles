@@ -29,6 +29,9 @@ set guifont=Consolas\ for\ Powerline:h20
 set pastetoggle=<F2>
 
 syntax enable
+set synmaxcol=256
+
+filetype off
 filetype plugin indent on                                        " Turn in filetype detection
 
 " Remap the indent keys in visual mode to keep selected text
@@ -87,7 +90,7 @@ set history=10000
 set linebreak
 set formatoptions=tq
 set wrapmargin=4
-set textwidth=120
+set textwidth=256
 
 set nowrap                                                       " Turn on line wrapping.
 
@@ -151,17 +154,16 @@ map ,b <Leader>lb
 map ,g <Leader>lg
 map ,s :Sscratch<CR>
 
+" maps for buffer explorer (so we don't compete with command-t)
+map ,ev :BufExplorerVerticalSplit<CR>
+map ,es :BufExplorerHorizontalSplit<CR>
+map ,ee :BufExplorer<CR>
+
 let g:rubycomplete_rails = 1
 let g:LustyExplorerSuppressRubyWarning = 1
 
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabLongestEnhanced = 1
-
-autocmd FileType *
-  \ if &omnifunc != '' |
-  \   call SuperTabChain(&omnifunc, "<c-p>") |
-  \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
-  \ endif
 
 " set t_Co=256
 " nnoremap ,3 :NumbersToggle<CR>
@@ -175,3 +177,26 @@ highlight clear SignColumn
 
 " map for Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+augroup vimrc_autocmd
+  autocmd!
+  autocmd FileType *
+    \ if &omnifunc != '' |
+    \   call SuperTabChain(&omnifunc, "<c-p>") |
+    \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+    \ endif
+
+  " remove trailing whitespaces
+  autocmd FileType ruby,eruby,cucumber,javascript,coffee,css,less,scss,scala,ex,exs autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+  " Show trailing whitepace and spaces before a tab:
+  highlight ExtraWhitespace ctermbg=red guibg=red
+  match ExtraWhitespace /\s\+$/
+  autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+  autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+  autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+  autocmd BufWinLeave * call clearmatches()
+augroup END
+
+
+:set wildignore+=*.o,*.obj,.git,tmp/cache/**
